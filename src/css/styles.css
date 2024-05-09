@@ -60,6 +60,7 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary {
@@ -68,6 +69,7 @@ body {
 
     /* will hide any side effects from animations like jumping up or down */
     backface-visibility: hidden;
+    margin-bottom: 60px;
     
 }
 
@@ -89,7 +91,6 @@ body {
 
     /* how will the animation happen, slow, fast, or something else. It can also accelerate with time or slow down. */
     animation-timing-function: ease-out;
-
 }
 
 .heading-primary-sub {
