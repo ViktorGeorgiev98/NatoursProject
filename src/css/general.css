@@ -1,3 +1,6 @@
+
+/* ************************************ */
+/* **************   BUTTONS    ********************* */
 .btn:link,
 .btn:visited {
     text-transform: uppercase;
@@ -6,15 +9,19 @@
     display: inline-block;
     border-radius: 100px;
     transition: all 0.2s;
+    /* position connected to btn::after */
+    position: relative;
 }
 
 .btn:hover {
+    /* this will move it up */
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .btn:active {
     transform: translateY(-1px);
+    /* this will move it up but less so in reality it will go down nicely */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -22,3 +29,44 @@
     background-color: #fff;
     color: #777;
 }
+
+.btn::after {
+    /* you always need to specify content and display properties, content can be empty */
+    display: inline-block;
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    /* to make it absolute parent element MUST always be position relative!!!!! */
+    /* In this case, this is the main button element. */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* connected to btn:hover::after */
+    transition: all 0.4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    /* only when we hove the after element */
+    /* transition is set in the btn::after */
+    /* You can scale using 2 values like below. */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    /* everything together can be done as well like below */
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* below code will set time to 0 so the styles are applied before the animation starts */
+    /* this will fix issues with delay. */
+    /* The element will not be seen at first and pop up nicely */
+    animation-fill-mode: backwards;
+}
+
+/* ************************************ */
+/* ************** END OF BUTTONS ********************* */
