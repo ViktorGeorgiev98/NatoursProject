@@ -6,3 +6,143 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+    /* remove padding and margin */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /*  specify font family in body */
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+
+/* ********************************** */
+/**************** HEADER **************/
+
+.header {
+    position: relative;
+    height: 95vh;
+    /* below code will make 2 colors, starting from one and going to the next */
+    /* opacity is the fourth parameter in the colors, making the image blurred */
+    background-image:linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)) , url("../img/hero.jpg");
+    /* cover the whole element */
+    background-size: cover;
+    /* will not allow the image to be cropped at the top when making the screen smaller */
+    background-position: top;
+    /* make any element or image clipped on any side. Will make it cut where you need */
+    /* 4 corners of the element, each having x and y. You specify each one like below */
+    /* Left side is the reference so x is 0. You can touch y */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
+}
+
+.logo-box {
+    /* below position, top and bottom will put it in the top left corner with padding */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+    /* will hide any side effects from animations like jumping up or down */
+    backface-visibility: hidden;
+    
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    /* initialize animation in element */
+    /* You put the name of the animation you created */
+    animation-name: moveInLeft;
+    /* duration */
+    animation-duration: 1s;
+    /* delay until animation starts */
+    /* animation-delay: 3s; */
+
+    /* how many times the animation will happen */
+    /* animation-iteration-count: 3; */
+
+    /* how will the animation happen, slow, fast, or something else. It can also accelerate with time or slow down. */
+    animation-timing-function: ease-out;
+
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+/* Complex animation using keyframes */
+
+@keyframes moveInLeft {
+    0% {
+        /* When the animation starts */
+        /* will make it invisible with opacity */
+        opacity: 0;
+        /* put negative value to be a lot to the left */
+        transform: translateX(-100px);
+    }
+
+    80% {
+        /* during the animation */
+        transform: translateX(10px);
+        /* this code will force it to the right and then return it. */
+    }
+
+    100% {
+        /* when the animation finishes */
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    /* same as the other one but mirrored */
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+/****************  **************/
+/****************END OF HEADER **************/
