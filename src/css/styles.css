@@ -20,11 +20,13 @@ Dark green: #28b485
     !!!!!!!!!!!!!!!!!!!!!!!!!
 */
 
-* {
+*,
+*::after,
+*::before {
     /* remove padding and margin */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
 html {
@@ -40,6 +42,7 @@ body {
     line-height: 1.7;
     color: #777;
     padding: 3rem;
+    box-sizing: border-box;
 }
 
 
@@ -62,18 +65,18 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
 }
 
-.logo-box {
+.header__logo-box {
     /* below position, top and bottom will put it in the top left corner with padding */
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -91,7 +94,7 @@ body {
     
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
@@ -111,7 +114,7 @@ body {
     animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
