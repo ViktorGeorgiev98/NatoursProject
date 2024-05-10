@@ -7,6 +7,19 @@ Dark green: #28b485
 
 */
 
+/* !!!!!!!!!!!!!!!!!!!!!!
+    Always convert px to REM, that is making design easier to work with.
+    1 rem = 10px
+    Default font size is 16px
+    Always set it in the html tag
+    It makes responsive web design very easy, because when you change the font size
+    in the html tag you will change the size of everything because
+    it is relative!!!!!
+    Always set it as percentage, not hardcoded value!!!!
+    divide 10/16 = 62.5% and use that!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
 * {
     /* remove padding and margin */
     margin: 0;
@@ -14,14 +27,19 @@ Dark green: #28b485
     box-sizing: border-box;
 }
 
+html {
+    /* set root font size here */
+    font-size: 62.5%;
+}
+
 body {
     /*  specify font family in body */
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
 }
 
 
@@ -47,12 +65,12 @@ body {
 .logo-box {
     /* below position, top and bottom will put it in the top left corner with padding */
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box {
@@ -69,15 +87,15 @@ body {
 
     /* will hide any side effects from animations like jumping up or down */
     backface-visibility: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
     
 }
 
 .heading-primary-main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     /* initialize animation in element */
     /* You put the name of the animation you created */
     animation-name: moveInLeft;
@@ -95,9 +113,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
 
     animation-name: moveInRight;
     animation-duration: 1s;

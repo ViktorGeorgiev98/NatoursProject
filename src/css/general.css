@@ -5,24 +5,25 @@
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all 0.2s;
     /* position connected to btn::after */
     position: relative;
+    font-size: 1.6rem;
 }
 
 .btn:hover {
     /* this will move it up */
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
 }
 
 .btn:active {
     transform: translateY(-1px);
     /* this will move it up but less so in reality it will go down nicely */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .btn-white {
@@ -36,7 +37,7 @@
     content: "";
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     /* to make it absolute parent element MUST always be position relative!!!!! */
     /* In this case, this is the main button element. */
     position: absolute;
