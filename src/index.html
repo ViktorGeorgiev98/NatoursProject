@@ -3,27 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-
         <link rel="stylesheet" href="css/icon-font.css">
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/animations.css">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
-        
         <title>Natours | Exciting tours for adventurous people</title>
     </head>
     <body>
+        <!-- Make the HTML in BEM method. Each important part should be a block -->
+        <!-- This will make good architecture with good readability -->
+        <!-- If an element is connected to its parent, use the parent class in the class of the child -->
+        <!-- It can be checked below with header for example -->
+        <!-- Header is a block so use __ -->
+        <!-- Other elements like heading-primary, use -- !!! => called modifiers -->
         <header class="header">
-            <div class="logo-box">
-                <img class="logo" src="../src/img/logo-white.png" alt="logo">
+            <div class="header__logo-box">
+                <img class="header__logo" src="../src/img/logo-white.png" alt="logo">
             </div>
-            <div class="text-box">
+            <div class="header__text-box">
                 <h1 class="heading-primary">
-                    <span class="heading-primary-main">Outdoors</span>
-                    <span class="heading-primary-sub">is where life happens</span>
+                    <span class="heading-primary--main">Outdoors</span>
+                    <span class="heading-primary--sub">is where life happens</span>
                 </h1>
+                <a href="#" class="btn btn--white btn--animated">Discover our tours</a>
             </div>
         </header>
-        
     </body>
 </html>

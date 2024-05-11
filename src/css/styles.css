@@ -7,22 +7,46 @@ Dark green: #28b485
 
 */
 
-* {
+/* !!!!!!!!!!!!!!!!!!!!!!
+    Always convert px to REM, that is making design easier to work with.
+    1 rem = 10px
+    Default font size is 16px
+    Always set it in the html tag
+    It makes responsive web design very easy, because when you change the font size
+    in the html tag you will change the size of everything because
+    it is relative!!!!!
+    Always set it as percentage, not hardcoded value!!!!
+    divide 10/16 = 62.5% and use that!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
+/* ******************  MAIN STYLES ********************* */
+*,
+*::after,
+*::before {
     /* remove padding and margin */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
+}
+
+html {
+    /* set root font size here */
+    font-size: 62.5%;
 }
 
 body {
     /*  specify font family in body */
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 }
+
+/* ****************** END OF MAIN STYLES ********************* */
 
 
 /* ********************************** */
@@ -44,22 +68,23 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
 }
 
-.logo-box {
+.header__logo-box {
     /* below position, top and bottom will put it in the top left corner with padding */
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
-.logo {
-    height: 35px;
+.header__logo {
+    height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary {
@@ -68,14 +93,15 @@ body {
 
     /* will hide any side effects from animations like jumping up or down */
     backface-visibility: hidden;
+    margin-bottom: 6rem;
     
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     /* initialize animation in element */
     /* You put the name of the animation you created */
     animation-name: moveInLeft;
@@ -89,60 +115,27 @@ body {
 
     /* how will the animation happen, slow, fast, or something else. It can also accelerate with time or slow down. */
     animation-timing-function: ease-out;
-
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
-
+    letter-spacing: 1.75rem;
     animation-name: moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-out;
 }
 
-/* Complex animation using keyframes */
 
-@keyframes moveInLeft {
-    0% {
-        /* When the animation starts */
-        /* will make it invisible with opacity */
-        opacity: 0;
-        /* put negative value to be a lot to the left */
-        transform: translateX(-100px);
-    }
-
-    80% {
-        /* during the animation */
-        transform: translateX(10px);
-        /* this code will force it to the right and then return it. */
-    }
-
-    100% {
-        /* when the animation finishes */
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-@keyframes moveInRight {
-    /* same as the other one but mirrored */
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-
-    80% {
-        transform: translateX(-10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
 
 /****************  **************/
 /****************END OF HEADER **************/
+
+
+
+
+
+
+
+
