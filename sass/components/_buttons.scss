@@ -1,0 +1,72 @@
+/* ************************************ */
+/* **************   BUTTONS    ********************* */
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all 0.2s;
+        /* position connected to btn::after */
+        position: relative;
+        font-size: 1.6rem;
+    }
+    &:hover {
+        /* this will move it up */
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.3);
+        &::after {
+            /* only when we hove the after element */
+            /* transition is set in the btn::after */
+            /* You can scale using 2 values like below. */
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        /* this will move it up but less so in reality it will go down nicely */
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    }
+
+    &--white {
+        background-color:$color-white;
+        color: $color-grey-dark;
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &::after {
+        /* you always need to specify content and display properties, content can be empty */
+        display: inline-block;
+        content: "";
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        /* to make it absolute parent element MUST always be position relative!!!!! */
+        /* In this case, this is the main button element. */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        /* connected to btn:hover::after */
+        transition: all 0.4s;
+    }
+
+    &--animated {
+        /* everything together can be done as well like below */
+        animation: moveInBottom 0.5s ease-out 0.75s;
+        /* below code will set time to 0 so the styles are applied before the animation starts */
+        /* this will fix issues with delay. */
+        /* The element will not be seen at first and pop up nicely */
+        animation-fill-mode: backwards;
+    }
+}
+
+
+/* ************************************ */
+/* ************** END OF BUTTONS ********************* */

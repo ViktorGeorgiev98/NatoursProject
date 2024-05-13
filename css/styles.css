@@ -1,11 +1,4 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
+/* ******************  MAIN STYLES ********************* */
 /* !!!!!!!!!!!!!!!!!!!!!!
     Always convert px to REM, that is making design easier to work with.
     1 rem = 10px
@@ -18,7 +11,6 @@ Dark green: #28b485
     divide 10/16 = 62.5% and use that!!!!!!
     !!!!!!!!!!!!!!!!!!!!!!!!!
 */
-/* ******************  MAIN STYLES ********************* */
 *,
 *::after,
 *::before {
@@ -42,6 +34,108 @@ body {
   box-sizing: border-box; }
 
 /* ****************** END OF MAIN STYLES ********************* */
+/* Complex animation using keyframes */
+/* *********************** ANIMATIONS ******************** */
+@keyframes moveInLeft {
+  0% {
+    /* When the animation starts */
+    /* will make it invisible with opacity */
+    opacity: 0;
+    /* put negative value to be a lot to the left */
+    transform: translateX(-10rem); }
+  80% {
+    /* during the animation */
+    transform: translateX(1rem);
+    /* this code will force it to the right and then return it. */ }
+  100% {
+    /* when the animation finishes */
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  /* same as the other one but mirrored */
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  /* same as the other one but mirrored */
+  0% {
+    opacity: 0;
+    transform: translateY(10rem); }
+  80% {
+    transform: translateY(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+/* *********************** END OF ANIMATIONS ******************** */
+/* ************************************ */
+/* **************   BUTTONS    ********************* */
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  /* position connected to btn::after */
+  position: relative;
+  font-size: 1.6rem; }
+
+.btn:hover {
+  /* this will move it up */
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3); }
+  .btn:hover::after {
+    /* only when we hove the after element */
+    /* transition is set in the btn::after */
+    /* You can scale using 2 values like below. */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
+
+.btn:active {
+  transform: translateY(-1px);
+  /* this will move it up but less so in reality it will go down nicely */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); }
+
+.btn--white {
+  background-color: #fff;
+  color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
+
+.btn::after {
+  /* you always need to specify content and display properties, content can be empty */
+  display: inline-block;
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  /* to make it absolute parent element MUST always be position relative!!!!! */
+  /* In this case, this is the main button element. */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* connected to btn:hover::after */
+  transition: all 0.4s; }
+
+.btn--animated {
+  /* everything together can be done as well like below */
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* below code will set time to 0 so the styles are applied before the animation starts */
+  /* this will fix issues with delay. */
+  /* The element will not be seen at first and pop up nicely */
+  animation-fill-mode: backwards; }
+
+/* ************************************ */
+/* ************** END OF BUTTONS ********************* */
 /* ********************************** */
 /**************** HEADER **************/
 .header {
@@ -105,105 +199,3 @@ body {
 
 /****************  **************/
 /****************END OF HEADER **************/
-/* ************************************ */
-/* **************   BUTTONS    ********************* */
-.btn:link, .btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  /* position connected to btn::after */
-  position: relative;
-  font-size: 1.6rem; }
-
-.btn:hover {
-  /* this will move it up */
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3); }
-  .btn:hover::after {
-    /* only when we hove the after element */
-    /* transition is set in the btn::after */
-    /* You can scale using 2 values like below. */
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0; }
-
-.btn:active {
-  transform: translateY(-1px);
-  /* this will move it up but less so in reality it will go down nicely */
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); }
-
-.btn--white {
-  background-color: #fff;
-  color: #777; }
-  .btn--white::after {
-    background-color: #fff; }
-
-.btn::after {
-  /* you always need to specify content and display properties, content can be empty */
-  display: inline-block;
-  content: "";
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  /* to make it absolute parent element MUST always be position relative!!!!! */
-  /* In this case, this is the main button element. */
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  /* connected to btn:hover::after */
-  transition: all 0.4s; }
-
-.btn--animated {
-  /* everything together can be done as well like below */
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  /* below code will set time to 0 so the styles are applied before the animation starts */
-  /* this will fix issues with delay. */
-  /* The element will not be seen at first and pop up nicely */
-  animation-fill-mode: backwards; }
-
-/* ************************************ */
-/* ************** END OF BUTTONS ********************* */
-/* Complex animation using keyframes */
-/* *********************** ANIMATIONS ******************** */
-@keyframes moveInLeft {
-  0% {
-    /* When the animation starts */
-    /* will make it invisible with opacity */
-    opacity: 0;
-    /* put negative value to be a lot to the left */
-    transform: translateX(-10rem); }
-  80% {
-    /* during the animation */
-    transform: translateX(1rem);
-    /* this code will force it to the right and then return it. */ }
-  100% {
-    /* when the animation finishes */
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInRight {
-  /* same as the other one but mirrored */
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInBottom {
-  /* same as the other one but mirrored */
-  0% {
-    opacity: 0;
-    transform: translateY(10rem); }
-  80% {
-    transform: translateY(-1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-/* *********************** END OF ANIMATIONS ******************** */
