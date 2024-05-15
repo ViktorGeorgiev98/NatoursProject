@@ -1,0 +1,36 @@
+/* ******************  MAIN STYLES ********************* */
+
+/* !!!!!!!!!!!!!!!!!!!!!!
+    Always convert px to REM, that is making design easier to work with.
+    1 rem = 10px
+    Default font size is 16px
+    Always set it in the html tag
+    It makes responsive web design very easy, because when you change the font size
+    in the html tag you will change the size of everything because
+    it is relative!!!!!
+    Always set it as percentage, not hardcoded value!!!!
+    divide 10/16 = 62.5% and use that!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
+
+*,
+*::after,
+*::before {
+    /* remove padding and margin */
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /* set root font size here */
+    // this defines what 1 rem is
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+/* ****************** END OF MAIN STYLES ********************* */

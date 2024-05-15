@@ -1,0 +1,44 @@
+/* ********************************** */
+/**************** HEADER **************/
+
+.header {
+    position: relative;
+    height: 95vh;
+    /* below code will make 2 colors, starting from one and going to the next */
+    /* opacity is the fourth parameter in the colors, making the image blurred */
+    background-image:linear-gradient(to right bottom, rgba($color-primary-light, 0.801), rgba($color-primary-dark, 0.801)) , url("../img/hero.jpg");
+    /* cover the whole element */
+    background-size: cover;
+    /* will not allow the image to be cropped at the top when making the screen smaller */
+    background-position: top;
+    /* make any element or image clipped on any side. Will make it cut where you need */
+    /* 4 corners of the element, each having x and y. You specify each one like below */
+    /* Left side is the reference so x is 0. You can touch y */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
+
+    // & stands for the parent class in SASS
+    // In this case this means that & equals to .header
+    // You just continue after that. !!!!!!!!!!!!!
+    &__logo-box {
+        /* below position, top and bottom will put it in the top left corner with padding */
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+    
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
+
+
+/****************  **************/
+/****************END OF HEADER **************/
