@@ -1,0 +1,40 @@
+.card {
+    // perspective has to be done on the parent in order to work
+    perspective: 150rem;
+    // for mozilla browsers
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 50rem;
+    &__side {
+        // this is the main element, above is the parent for perspective, below its hovering
+        height: 50rem;
+        transition: all 0.8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+        &--front {
+            background-color: $color-white;
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+}
