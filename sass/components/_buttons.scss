@@ -1,6 +1,7 @@
 /* ************************************ */
 /* **************   BUTTONS    ********************* */
 .btn {
+    &,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -12,6 +13,10 @@
         /* position connected to btn::after */
         position: relative;
         font-size: $default-font-size;
+
+        // change for the <button> element
+        border: none;
+        cursor: pointer;
     }
     &:hover {
         /* this will move it up */
@@ -26,10 +31,12 @@
         }
     }
 
-    &:active {
+    &:active,
+    &:focus {
+        outline: none;
         transform: translateY(-1px);
         /* this will move it up but less so in reality it will go down nicely */
-        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
     }
 
     &--white {
@@ -96,6 +103,7 @@
     }
 
     &:active {
+        outline: none;
         box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
         transform: translateY(0);
     }
