@@ -13,7 +13,7 @@
     transform: translate(-50%, -50%);
 }
 
-
+// media query manager
 @mixin respond($breakpoint) {
     @if $breakpoint == phone {
         @media only screen and (max-width: 37.5em) { @content };    //600px
