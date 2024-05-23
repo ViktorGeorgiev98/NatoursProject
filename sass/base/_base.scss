@@ -54,4 +54,10 @@ body {
 }
 }
 
+// when a user select some text it will be green
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
+
 /* ****************** END OF MAIN STYLES ********************* */
