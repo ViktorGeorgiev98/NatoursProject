@@ -27,10 +27,37 @@ html {
     /* set root font size here */
     // this defines what 1 rem is
     font-size: 62.5%;
+
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+
+    // @include respond(phone) {
+    //     font-size: 30%;
+    // }
+
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
 }
 
 body {
     box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+       padding: 0;
+}
+}
+
+// when a user select some text it will be green
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
 }
 
 /* ****************** END OF MAIN STYLES ********************* */

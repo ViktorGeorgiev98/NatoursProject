@@ -15,10 +15,15 @@
     /* 4 corners of the element, each having x and y. You specify each one like below */
     /* Left side is the reference so x is 0. You can touch y */
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
-
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
     // & stands for the parent class in SASS
     // In this case this means that & equals to .header
     // You just continue after that. !!!!!!!!!!!!!
+
+    @include respond(phone) {
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); 
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); 
+    }
     &__logo-box {
         /* below position, top and bottom will put it in the top left corner with padding */
         position: absolute;

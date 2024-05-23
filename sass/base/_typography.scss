@@ -5,7 +5,6 @@ body {
     /* font-size: 16px; */
     line-height: 1.7;
     color: $color-grey-dark;
-    padding: 3rem;
 }
 
 
@@ -35,6 +34,10 @@ body {
     
         /* how will the animation happen, slow, fast, or something else. It can also accelerate with time or slow down. */
         animation-timing-function: ease-out;
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
     }
     
     &--sub {
@@ -45,6 +48,9 @@ body {
         animation-name: moveInRight;
         animation-duration: 1s;
         animation-timing-function: ease-out;
+        @include respond(phone) {
+            letter-spacing: 0.5rem;
+        }
     }
     
 }
@@ -63,6 +69,14 @@ body {
     // set the duration of any animations simple way
     transition: all 0.2s;
     letter-spacing: 2px;
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
 
     &:hover {
         // This will tilt it to the right, to the top and make it 110% of it original size
